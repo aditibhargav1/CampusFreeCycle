@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2><%= item.title %></h2>
+<p><%= item.description %></p>
+<p>Condition: <%= item.condition %></p>
+<p>Category: <%= item.category %></p>
+
+<% if (userId && item.postedBy._id.toString() === userId.toString()) { %>
+  <a href="/items/<%= item._id %>/edit">Edit</a>
+
+  <form method="POST" action="/items/<%= item._id %>/delete">
+    <button>Delete</button>
+  </form>
+<% } %>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h2>Edit Item</h2>
+
+<form method="POST" action="/items/<%= item._id %>">
+  <input name="title" value="<%= item.title %>"><br>
+  <textarea name="description"><%= item.description %></textarea><br>
+  <input name="price" type="number" value="<%= item.price %>">
+
+  <button>Update</button>
+</form>
+
+<%- include('../partials/footer') %>

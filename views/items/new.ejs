@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h2>Post Free Item</h2>
+
+<form method="POST" action="/items">
+  <input name="title" placeholder="Item Name" required><br>
+  <textarea name="description" placeholder="Description"></textarea><br>
+
+  <select name="category">
+    <option>Books</option>
+    <option>Electronics</option>
+    <option>Furniture</option>
+    <option>Clothing</option>
+  </select><br>
+  <input name="price" type="number" placeholder="Price (0 = Free)" required>
+
+  <select name="condition">
+    <option>New</option>
+    <option>Good</option>
+    <option>Used</option>
+  </select><br>
+
+  <button>Post Item</button>
+</form>
+
+<%- include('../partials/footer') %>

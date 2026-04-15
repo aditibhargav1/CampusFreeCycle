@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<h2>Available Free Items</h2>
+
+<% items.forEach(item => { %>
+
+  <div class="item-card">
+    <h3><%= item.title %></h3>
+
+    <p>
+      Price:
+      <% if (item.price === 0) { %>
+        <strong>Free</strong>
+      <% } else { %>
+        ₹<%= item.price %>
+      <% } %>
+    </p>
+
+    <p>Category: <%= item.category %></p>
+    <p>Condition: <%= item.condition %></p>
+
+    <p>Likes: <%= item.likes.length %></p>
+
+    <% if (userId) { %>
+      <form method="POST" action="/items/<%= item._id %>/like">
+        <button type="submit">
+          <%= item.likes.includes(userId) ? "Unlike" : "Like" %>
+        </button>
+      </form>
+    <% } %>
+
+  </div>
+
+<% }) %>
+
+<%- include('../partials/footer') %>
